@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<unload unload_date="2013-04-05 21:33:35">
+<sys_remote_update_set action="INSERT_OR_UPDATE">
+<collisions/>
+<commit_date/>
+<deleted/>
+<description>A simple UI Script that lets you reload the form by pressing the Alt/Option key twice (quickly).</description>
+<inserted/>
+<name>ReloadForm</name>
+<origin_sys_id/>
+<release_date/>
+<remote_sys_id>a0fe0d3155244140ccce5f6af0e457b0</remote_sys_id>
+<state>loaded</state>
+<summary/>
+<sys_created_by>cwhaley</sys_created_by>
+<sys_created_on>2013-04-05 21:33:35</sys_created_on>
+<sys_id>3cbf413155244140ccce5f6af0e45748</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>cwhaley</sys_updated_by>
+<sys_updated_on>2013-04-05 21:33:35</sys_updated_on>
+<update_set display_value=""/>
+<update_source display_value=""/>
+<updated/>
+</sys_remote_update_set>
+<sys_update_xml action="INSERT_OR_UPDATE">
+<action>INSERT_OR_UPDATE</action>
+<category>customer</category>
+<comments/>
+<name>sys_ui_script_7b56f07d55e04140ccce5f6af0e45756</name>
+<payload>&lt;?xml version="1.0" encoding="UTF-8"?&gt;&lt;record_update table="sys_ui_script"&gt;&lt;sys_ui_script action="INSERT_OR_UPDATE"&gt;&lt;active&gt;true&lt;/active&gt;&lt;description&gt;Pressing Alt/Option Twice will reload the current frame.&lt;/description&gt;&lt;global&gt;true&lt;/global&gt;&lt;name&gt;ReloadForm&lt;/name&gt;&lt;script&gt;//Reloads the form when Alt key is double-pressed&amp;#13;
+//You must press the key twice within 300ms&amp;#13;
+//To change the key that is used, simply update event.keyCode = 18 to whatever key code you want&amp;#13;
+//A list of key codes can be found here:  http://www.javascripter.net/faq/keycodes.htm&amp;#13;
+&amp;#13;
+var dblCtrlKey = 0;&amp;#13;
+Event.observe(document, 'keydown', function(event) {&amp;#13;
+  if (dblCtrlKey != 0 &amp;amp;&amp;amp; event.keyCode == 18) {&amp;#13;
+    location.reload();&amp;#13;
+  } else {&amp;#13;
+    dblCtrlKey = setTimeout('dblCtrlKey = 0;', 300);&amp;#13;
+  }&amp;#13;
+});&lt;/script&gt;&lt;sys_created_by&gt;cwhaley&lt;/sys_created_by&gt;&lt;sys_created_on&gt;2013-04-05 19:43:33&lt;/sys_created_on&gt;&lt;sys_id&gt;7b56f07d55e04140ccce5f6af0e45756&lt;/sys_id&gt;&lt;sys_mod_count&gt;42&lt;/sys_mod_count&gt;&lt;sys_updated_by&gt;cwhaley&lt;/sys_updated_by&gt;&lt;sys_updated_on&gt;2013-04-05 21:33:24&lt;/sys_updated_on&gt;&lt;u_order/&gt;&lt;/sys_ui_script&gt;&lt;/record_update&gt;</payload>
+<remote_update_set display_value="ReloadForm">3cbf413155244140ccce5f6af0e45748</remote_update_set>
+<sys_created_by>cwhaley</sys_created_by>
+<sys_created_on>2013-04-05 21:33:35</sys_created_on>
+<sys_id>b8bf413155244140ccce5f6af0e45749</sys_id>
+<sys_mod_count>0</sys_mod_count>
+<sys_updated_by>cwhaley</sys_updated_by>
+<sys_updated_on>2013-04-05 21:33:35</sys_updated_on>
+<table/>
+<target_name>ReloadForm</target_name>
+<type>UI Script</type>
+<update_domain>global</update_domain>
+<update_set display_value=""/>
+<view/>
+</sys_update_xml>
+</unload>
