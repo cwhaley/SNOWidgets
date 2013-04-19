@@ -1,13 +1,10 @@
-SNOWidgets - ReloadForm
+SNOWidgets - RaspberryPi Integration
 =======================
 
-Ever wished you could quickly reload the form in ServiceNow using a shortcut, regardless of what browser you are in?  Here you go...
+Two scripts for enabling the RaspberryPi integration with ServiceNow demonstrated at http://youtu.be/a01hjs7ojWU.
 
-Creates a UI Script called ReloadForm
-Reloads the form when Alt key is double-pressed
-You must press the key twice within 300ms
-To change the key that is used, simply update event.keyCode = 18 to whatever key code you want
-A list of key codes can be found here:  http://www.javascripter.net/faq/keycodes.htm
+snc_presency.py - The python script that interacts with the untrasonic distance detector and updates ServiceNow.
+show_user_status.txt - The UI Macro that displays the appropriate status inside ServiceNow.
 
 
 
