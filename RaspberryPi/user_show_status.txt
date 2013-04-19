@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<j:jelly trim="false" xmlns:j="jelly:core" xmlns:g="glide" xmlns:j2="null" xmlns:g2="null">
+<g:evaluate var="jvar_guid" expression="gs.generateGUID(this);" />
+  <a id="${jvar_guid}" name="${jvar_guid}" 
+    onclick="showRelatedList('${ref}')"
+    style="visibility: hidden">
+  <img border="0" src="images/icon_warning.gif" title="View Assigned Tickets" alt="View Assigned Tickets" name='presencestatus'/>
+</a>
+<script>
+// react to an onchange event
+// show link if populated, hide if not
+// move to js file for multiple inclusion
+function statusShow(element, original, changed, loading) {
+  var visibility = 'hidden';
+   if (changed.length > 0)
+    visibility = 'visible';
+  var e = gel('${jvar_guid}');
+  var r = g_form.getReference('assigned_to');
+  if(r.u_presence == 'true') {
+    document.presencestatus.src = "images/icon_clear.gif";
+  } else {
+    document.presencestatus.src = "images/icon_moot.gif";
+  }
+  e.style.visibility= visibility;
+}
+function showRelatedList(reference) {
+  var s = reference.split('.');
+  var tableName = s[0];
+  var referenceField = s[1];
+  var url =  tableName + '_list.do?'; 
+  url += '&amp;amp;';
+  var v = g_form.getValue(referenceField);
+  url += 'sysparm_query=' + referenceField + '=' + v;
+  var w = getTopWindow(); 
+  w.popupOpenFocus(url, 'related_list',  950, 700, '', false, false); 
+}
+var n = '${ref}'.replace(/\./g, '_');
+var h = new GlideEventHandler('onChange_status_' + n, statusShow, '${ref}');
+g_event_handlers.push(h);
+</script>
+</j:jelly>
